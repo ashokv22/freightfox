@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: 'FreightFox'
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/demo'
+    username: root
+    password: root
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
