@@ -22,7 +22,7 @@ import java.util.Optional;
 @Service
 public class PincodeServiceImpl implements PincodeService {
 
-    @Value("${google.maps.api-key}")
+    @Value("${apis.google.maps.api-key}")
     private String googleMapsApiKey;
 
     private final CacheManager cacheManager;
