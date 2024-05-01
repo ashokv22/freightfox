@@ -3,33 +3,25 @@ package com.freightfox.demo.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalTime;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 @Entity
-@Table(name = "meetings")
-public class Meetings {
+@Table(name = "participants")
+public class Participants {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-
-    private LocalTime startTime;
-
-    private LocalTime endTime;
+    @ManyToOne
+    @JoinColumn(name = "meeting_id")
+    private Meetings meeting;
 
     @ManyToOne
-    @JoinColumn(name = "owner_id")
-    private Employee owner;
-
-    @ManyToOne
-    @JoinColumn(name = "participant_id")
+    @JoinColumn(name = "participant_user_id")
     private Employee participant;
 
 }

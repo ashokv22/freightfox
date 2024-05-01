@@ -37,3 +37,28 @@ create table weather_data (
 	temperature double not null,
 	humidity double
 );
+
+
+-- Task 4 Meeting Assistant
+
+create table employee (
+	id int  AUTO_INCREMENT PRIMARY KEY,
+	name varchar(50) not null
+);
+
+CREATE TABLE MeetingSlot (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  start_time TIME NOT NULL,
+  end_time TIME NOT NULL
+);
+
+CREATE TABLE meetings (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  start_time TIME NOT NULL,
+  end_time TIME NOT NULL,
+  owner_id INT NOT NULL,
+  participant_id INT NOT NULL
+  FOREIGN KEY (owner_id) REFERENCES employee(id),
+  FOREIGN KEY (participant_id) REFERENCES employee(id)
+);
