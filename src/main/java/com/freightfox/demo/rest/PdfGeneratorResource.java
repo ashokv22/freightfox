@@ -26,7 +26,7 @@ public class PdfGeneratorResource {
         byte[] pdfBytes = pdfGeneratorService.generatePdf(invoice);
         // Save the PDF to local storage here
         // Return the generated PDF bytes in the response
-        return createPdfResponse(pdfBytes, "generated.pdf");
+        return createPdfResponse(pdfBytes);
     }
 
     @GetMapping("/download/{pdfId}")
@@ -34,13 +34,13 @@ public class PdfGeneratorResource {
         log.info("Request to download PDF for ID: {}", pdfId);
         // Retrieve the PDF from local storage based on the PDF ID
         byte[] file = pdfGeneratorService.downloadPdf(pdfId);
-        return createPdfResponse(file, "generated.pdf");
+        return createPdfResponse(file);
     }
 
-    private ResponseEntity<byte[]> createPdfResponse(byte[] pdfBytes, String fileName) {
+    private ResponseEntity<byte[]> createPdfResponse(byte[] pdfBytes) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PDF);
-        headers.setContentDispositionFormData("filename", fileName);
+        headers.setContentDispositionFormData("filename", "generated.pdf");
         headers.setContentLength(pdfBytes.length);
         return new ResponseEntity<>(pdfBytes, headers, HttpStatus.OK);
     }

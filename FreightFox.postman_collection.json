@@ -1,0 +1,600 @@
+{
+	"info": {
+		"_postman_id": "bfaa4e13-b0ba-4bd9-b1bd-1c9b85bb9ac3",
+		"name": "FreightFox",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14757868",
+		"_collection_link": "https://winter-satellite-611231.postman.co/workspace/LMW~fac88950-7fee-4ec2-a0ea-2ccbac0fa8ab/collection/14757868-bfaa4e13-b0ba-4bd9-b1bd-1c9b85bb9ac3?action=share&source=collection_link&creator=14757868"
+	},
+	"item": [
+		{
+			"name": "Pdf generator",
+			"item": [
+				{
+					"name": "Generate PDF",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"seller\": \"XYZ Pvt. Ltd.\",\r\n    \"sellerGstin\": \"29AABBCCDD121ZD\",\r\n    \"sellerAddress\": \"New Delhi, India\",\r\n    \"buyer\": \"Vedant Computers\",\r\n    \"buyerGstin\": \"29AABBCCDD131ZD\",\r\n    \"buyerAddress\": \"New Delhi, India\",\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Product 1\",\r\n            \"quantity\": \"12 Nos\",\r\n            \"rate\": 123.00,\r\n            \"amount\": 1476.00\r\n        },\r\n        {\r\n            \"name\": \"Product 2\",\r\n            \"quantity\": \"10 Nos\",\r\n            \"rate\": 130.00,\r\n            \"amount\": 1576.00\r\n        },\r\n        {\r\n            \"name\": \"Product 3\",\r\n            \"quantity\": \"24 Nos\",\r\n            \"rate\": 100.00,\r\n            \"amount\": 1200.00\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/pdf-generator/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pdf-generator",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pincode",
+			"item": [
+				{
+					"name": "Get Distance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/pincode/distance?source=560011&destination=563116",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"pincode",
+								"distance"
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "560011"
+								},
+								{
+									"key": "destination",
+									"value": "563116"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "From cache",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/pincode/distance?source=560011&destination=560004",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pincode",
+										"distance"
+									],
+									"query": [
+										{
+											"key": "source",
+											"value": "560011"
+										},
+										{
+											"key": "destination",
+											"value": "560004"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Apr 2024 17:16:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sourcePincode\": \"560011\",\n    \"destinationPincode\": \"560004\",\n    \"distance\": \"2.8 km\",\n    \"duration\": \"8 mins\"\n}"
+						},
+						{
+							"name": "Without cache",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/pincode/distance?source=560011&destination=560005",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pincode",
+										"distance"
+									],
+									"query": [
+										{
+											"key": "source",
+											"value": "560011"
+										},
+										{
+											"key": "destination",
+											"value": "560005"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 25 Apr 2024 17:16:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sourcePincode\": \"560011\",\n    \"destinationPincode\": \"560005\",\n    \"distance\": \"13.6 km\",\n    \"duration\": \"41 mins\"\n}"
+						},
+						{
+							"name": "From DB",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/pincode/distance?source=560011&destination=563116",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"pincode",
+										"distance"
+									],
+									"query": [
+										{
+											"key": "source",
+											"value": "560011"
+										},
+										{
+											"key": "destination",
+											"value": "563116"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 26 Apr 2024 10:26:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"sourcePincode\": \"560011\",\n    \"destinationPincode\": \"563116\",\n    \"distance\": \"114 km\",\n    \"duration\": \"2 hours 41 mins\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Weather",
+			"item": [
+				{
+					"name": "Get Weather Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/weather/get-weather-data?pinCode=560011&weatherDate=2024-04-26",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"weather",
+								"get-weather-data"
+							],
+							"query": [
+								{
+									"key": "pinCode",
+									"value": "560011"
+								},
+								{
+									"key": "weatherDate",
+									"value": "2024-04-26"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sample",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/weather/get-weather-data?pinCode=560011&weatherDate=2024-04-26",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"weather",
+										"get-weather-data"
+									],
+									"query": [
+										{
+											"key": "pinCode",
+											"value": "560011"
+										},
+										{
+											"key": "weatherDate",
+											"value": "2024-04-26"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Apr 2024 12:14:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"pincode\": \"560011\",\n    \"forDate\": \"2024-04-26\",\n    \"description\": \"broken clouds\",\n    \"temperature\": 307.42,\n    \"humidity\": 24\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Calender",
+			"item": [
+				{
+					"name": "Create Meeting",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Meeting\",\r\n    \"startTime\": \"07:00:00\",\r\n    \"endTime\": \"07:30:00\",\r\n    \"owner\": {\r\n        \"id\": 5,\r\n        \"name\": \"Ashu\"\r\n    },\r\n    \"participant\": {\r\n        \"id\": 6,\r\n        \"name\": \"Ashu\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/calender/meetings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"calender",
+								"meetings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sample",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Meeting\",\r\n    \"startTime\": \"07:00:00\",\r\n    \"endTime\": \"07:30:00\",\r\n    \"owner\": {\r\n        \"id\": 5,\r\n        \"name\": \"Ashu\"\r\n    },\r\n    \"participant\": {\r\n        \"id\": 6,\r\n        \"name\": \"Ashu\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/api/calender/meetings",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"calender",
+										"meetings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 01 May 2024 14:50:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"title\": \"Meeting\",\n    \"startTime\": \"07:00:00\",\n    \"endTime\": \"07:30:00\",\n    \"owner\": {\n        \"id\": 5,\n        \"name\": \"Ashu\",\n        \"meetings\": null\n    },\n    \"participant\": {\n        \"id\": 6,\n        \"name\": \"Ashu\",\n        \"meetings\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get meeting slots",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/calender/free-slots?employee1Id=2&employee2Id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"calender",
+								"free-slots"
+							],
+							"query": [
+								{
+									"key": "employee1Id",
+									"value": "2"
+								},
+								{
+									"key": "employee2Id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get meeting slots",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/calender/free-slots?employee1Id=2&employee2Id=5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"calender",
+										"free-slots"
+									],
+									"query": [
+										{
+											"key": "employee1Id",
+											"value": "2"
+										},
+										{
+											"key": "employee2Id",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 01 May 2024 16:04:35 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"startTime\": \"07:30:00\",\n        \"endTime\": \"08:00:00\"\n    },\n    {\n        \"startTime\": \"08:00:00\",\n        \"endTime\": \"08:30:00\"\n    },\n    {\n        \"startTime\": \"08:30:00\",\n        \"endTime\": \"09:00:00\"\n    },\n    {\n        \"startTime\": \"09:00:00\",\n        \"endTime\": \"09:30:00\"\n    },\n    {\n        \"startTime\": \"09:30:00\",\n        \"endTime\": \"10:00:00\"\n    },\n    {\n        \"startTime\": \"10:00:00\",\n        \"endTime\": \"10:30:00\"\n    },\n    {\n        \"startTime\": \"10:30:00\",\n        \"endTime\": \"11:00:00\"\n    },\n    {\n        \"startTime\": \"11:00:00\",\n        \"endTime\": \"11:30:00\"\n    },\n    {\n        \"startTime\": \"11:30:00\",\n        \"endTime\": \"12:00:00\"\n    },\n    {\n        \"startTime\": \"12:00:00\",\n        \"endTime\": \"12:30:00\"\n    },\n    {\n        \"startTime\": \"12:30:00\",\n        \"endTime\": \"13:00:00\"\n    },\n    {\n        \"startTime\": \"13:00:00\",\n        \"endTime\": \"13:30:00\"\n    },\n    {\n        \"startTime\": \"13:30:00\",\n        \"endTime\": \"14:00:00\"\n    },\n    {\n        \"startTime\": \"14:00:00\",\n        \"endTime\": \"14:30:00\"\n    },\n    {\n        \"startTime\": \"14:30:00\",\n        \"endTime\": \"15:00:00\"\n    },\n    {\n        \"startTime\": \"15:00:00\",\n        \"endTime\": \"15:30:00\"\n    },\n    {\n        \"startTime\": \"15:30:00\",\n        \"endTime\": \"16:00:00\"\n    },\n    {\n        \"startTime\": \"16:00:00\",\n        \"endTime\": \"16:30:00\"\n    },\n    {\n        \"startTime\": \"16:30:00\",\n        \"endTime\": \"17:00:00\"\n    },\n    {\n        \"startTime\": \"17:00:00\",\n        \"endTime\": \"17:30:00\"\n    },\n    {\n        \"startTime\": \"17:30:00\",\n        \"endTime\": \"18:00:00\"\n    },\n    {\n        \"startTime\": \"18:00:00\",\n        \"endTime\": \"18:30:00\"\n    },\n    {\n        \"startTime\": \"18:30:00\",\n        \"endTime\": \"19:00:00\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Meeting conflicts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/calender/meeting-conflicts/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"calender",
+								"meeting-conflicts",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sample",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/calender/meeting-conflicts/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"calender",
+										"meeting-conflicts",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 01 May 2024 15:07:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"name\": \"Ashu\",\n        \"meetings\": []\n    },\n    {\n        \"id\": 4,\n        \"name\": \"A\",\n        \"meetings\": []\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
