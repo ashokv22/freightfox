@@ -1,6 +1,5 @@
 package com.freightfox.demo.rest;
 
-
 import com.freightfox.demo.domain.Employee;
 import com.freightfox.demo.domain.MeetingSlot;
 import com.freightfox.demo.domain.Meetings;
@@ -49,7 +48,7 @@ public class CalenderAssistantResourceTest {
     }
 
     @Test
-    void findUserFreeSlots_ValidInput_Success() {
+    void findEmployeeFreeSlotsValidInputSuccess() {
         Long employee1Id = 1L;
         Long employee2Id = 2L;
         /* List of expected meeting slots */
@@ -61,7 +60,7 @@ public class CalenderAssistantResourceTest {
     }
 
     @Test
-    void getMeetingConflictsForUsers_ValidMeetingId_Success() {
+    void getMeetingConflictsForEmployeesValidMeetingIdSuccess() {
         Long meetingId = 1L;
         /* List of expected conflicting employees */
         List<Employee> expectedConflicts = List.of();
