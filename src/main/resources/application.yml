@@ -6,10 +6,20 @@ spring:
     active: dev
   application:
     name: 'FreightFox'
+  storage:
+    path: 'C:\\temp\\' # Change the path in pdf generator method
   datasource:
     url: 'jdbc:mysql://localhost:3306/demo'
     username: root
     password: root
+
+apis:
+  openWeather:
+    baseUrl: 'https://api.openweathermap.org'
+    api-key: 'API-KEY'
+  google:
+    maps:
+      api-key: 'API-KEY'
 
 logging:
   level:
